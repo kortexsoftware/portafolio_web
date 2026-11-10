@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ServiceCategory {
+  WEB
+  SOFTWARE
+  ECOMMERCE
+  MOBILE
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUOTED
+  WON
+  LOST
+}
+
+model Service {
+  id          String          @id @default(uuid())
+  slug        String          @unique
+  name        String
+  description String
+  category    ServiceCategory
+  priceFrom   Int
+  features    String[]
+  createdAt   DateTime        @default(now())
+  leads       Lead[]
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  title       String
+  client      String
+  summary     String
+  imageUrl    String
+  tags        String[]
+  url         String?
+  publishedAt DateTime @default(now())
+}
+
+model Lead {
+  id        String     @id @default(uuid())
+  name      String
+  email     String
+  company   String?
+  message   String
+  budget    Int?
+  status    LeadStatus @default(NEW)
+  serviceId String?
+  service   Service?   @relation(fields: [serviceId], references: [id])
+  createdAt DateTime   @default(now())
+}
