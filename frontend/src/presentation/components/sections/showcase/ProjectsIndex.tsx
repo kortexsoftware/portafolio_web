@@ -5,7 +5,8 @@ const items = [
   { id: "fullfragrance", index: "01", label: "FullFragrance" },
   { id: "strongerfit", index: "02", label: "StrongerFit" },
   { id: "loncoche-tdm", index: "03", label: "Loncoche TDM" },
-  { id: "proyectos", index: "04", label: "Más proyectos" },
+  { id: "healup", index: "04", label: "HealUp" },
+  { id: "proyectos", index: "05", label: "Más proyectos" },
 ];
 
 /** Barra fija que marca qué proyecto se está viendo. */
