@@ -12,6 +12,7 @@ import { AboutStory } from "../components/sections/AboutStory";
 import { ProjectsSection } from "../components/sections/ProjectsSection";
 import { FullFragrance } from "../components/sections/showcase/FullFragrance";
 import { StrongerFit } from "../components/sections/showcase/StrongerFit";
+import { LoncocheTdm } from "../components/sections/showcase/LoncocheTdm";
 import { ProjectsIndex } from "../components/sections/showcase/ProjectsIndex";
 import { ContactSection } from "../components/sections/ContactSection";
 import {
@@ -82,6 +83,7 @@ export const ProjectsPage = () => (
     <div className="showcase-stack">
       <FullFragrance />
       <StrongerFit />
+      <LoncocheTdm />
     </div>
     <Band>
       <ProjectsSection showAll />

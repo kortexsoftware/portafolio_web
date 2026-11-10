@@ -4,7 +4,8 @@ import { reducedMotion } from "./Showcase";
 const items = [
   { id: "fullfragrance", index: "01", label: "FullFragrance" },
   { id: "strongerfit", index: "02", label: "StrongerFit" },
-  { id: "proyectos", index: "03", label: "Más proyectos" },
+  { id: "loncoche-tdm", index: "03", label: "Loncoche TDM" },
+  { id: "proyectos", index: "04", label: "Más proyectos" },
 ];
 
 /** Barra fija que marca qué proyecto se está viendo. */
