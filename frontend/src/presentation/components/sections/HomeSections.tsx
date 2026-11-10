@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { products, steps, plans } from "../../content/home";
+import { products, steps, plans, maintenanceNote } from "../../content/home";
 import { Icon } from "../ui/Icon";
 export const AboutSection = () => (
   <section id="quienes-somos" className="section wrap about-section">
@@ -124,7 +124,7 @@ export const PlansSection = () => {
   const [expanded, setExpanded] = useState(false);
   return (
     <section id="planes" className="section wrap">
-      <h2>Planes sin letra chica</h2>
+      <h2>Planes web sin letra chica</h2>
       <div
         id="plan-options"
         className={`plans-grid${expanded ? " plans-expanded" : ""}`}
@@ -138,8 +138,10 @@ export const PlansSection = () => {
               <h3>{plan.name}</h3>
               {i === 1 && <span>Más completo</span>}
             </div>
-            <p className="plan-price">{i === 2 ? "A medida" : "Conversemos"}</p>
-            <p className="plan-caption">Cotización según tu empresa</p>
+            <p className="plan-price">
+              <small className="plan-from">Desde</small> {plan.price}
+            </p>
+            <p className="plan-caption">{plan.caption}</p>
             <ul>
               {plan.features.map((f) => (
                 <li key={f}>{f}</li>
@@ -149,11 +151,12 @@ export const PlansSection = () => {
               to={`/contacto?plan=${plan.name}`}
               className={`btn ${i === 1 ? "" : "btn-outline"}`}
             >
-              {i === 2 ? "Cotizar" : `Elegir ${plan.name}`}
+              {plan.cta}
             </Link>
           </article>
         ))}
       </div>
+      <p className="plan-caption">{maintenanceNote}</p>
       <button
         type="button"
         className="btn btn-outline mobile-plans"

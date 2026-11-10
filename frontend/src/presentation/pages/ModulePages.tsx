@@ -111,7 +111,7 @@ export const PlansPage = () => (
     <PageHeader
       index="05"
       title="Planes"
-      lead="Planes claros, cotizados según el tamaño y las necesidades de tu empresa."
+      lead="Precios claros para tu sitio web, desde landing pages hasta tiendas online."
       visual={<PlansVisual />}
     />
     <PlansSection />

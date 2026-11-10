@@ -49,28 +49,43 @@ export const steps = [
 ];
 export const plans = [
   {
-    name: "Inicial",
+    name: "Landing",
+    price: "$390.000",
+    caption: "Pago único + IVA · Listo en ~2 semanas",
     features: [
-      "Tu solución esencial",
-      "Puesta en marcha",
-      "Soporte para comenzar",
+      "Página de una sección, a tu medida",
+      "Diseño adaptado a celular",
+      "Formulario de contacto y WhatsApp",
+      "Dominio y hosting el primer año",
     ],
+    cta: "Elegir Landing",
   },
   {
-    name: "Profesional",
+    name: "Corporativo",
+    price: "$790.000",
+    caption: "Pago único + IVA · Listo en ~4 semanas",
     features: [
-      "Más procesos conectados",
-      "Configuración de tu operación",
-      "Capacitación del equipo",
-      "Acompañamiento continuo",
+      "Sitio de 4 a 6 secciones",
+      "SEO básico y Google Analytics",
+      "Correos corporativos",
+      "Capacitación para editar tu contenido",
+      "1 mes de soporte incluido",
     ],
+    cta: "Elegir Corporativo",
   },
   {
-    name: "Empresa",
+    name: "Tienda online",
+    price: "$590.000",
+    caption: "Tienda a medida desde $1.200.000 + IVA",
     features: [
-      "Alcance personalizado",
-      "Integraciones a medida",
-      "Implementación acompañada",
+      "Catálogo, carrito y medios de pago",
+      "Envíos y gestión de pedidos",
+      "Integraciones a medida (cotiza)",
+      "Capacitación de tu equipo",
     ],
+    cta: "Cotizar tienda",
   },
 ];
+
+export const maintenanceNote =
+  "Mantención mensual opcional desde $25.000: cambios, respaldos y seguridad.";
