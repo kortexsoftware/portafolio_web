@@ -230,21 +230,6 @@ em {
   font-weight: 800;
   letter-spacing: -0.02em;
 }
-.logo-mark {
-  width: 29px;
-  height: 29px;
-  border: 1px solid #6a947b;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-}
-.logo-mark:after {
-  content: "";
-  width: 11px;
-  height: 11px;
-  background: var(--accent-warm);
-  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-}
 .navigation {
   display: flex;
   gap: 28px;
@@ -1312,10 +1297,6 @@ main > section:not([class]) > h1 {
   .logo {
     font-size: 20px;
   }
-  .logo-mark {
-    width: 27px;
-    height: 27px;
-  }
   .network {
     margin: 0 0 8px;
     max-width: 360px;
@@ -1699,6 +1680,9 @@ main > section:not([class]) > h1 {
   --ff-glow: rgb(214 168 90 / 0.16);
   --ff-title: linear-gradient(100deg, #f1d9a8 0%, #d6a85a 30%, #fff4dd 50%, #d6a85a 70%, #f1d9a8 100%);
   --ff-shadow: 0 20px 40px rgb(0 0 0 / 0.35);
+  --ff-by: #9fdcc0;
+  --ff-by-bg: rgb(159 220 192 / 0.1);
+  --ff-by-border: rgb(159 220 192 / 0.35);
 }
 .theme-sf {
   --ff-bg: #faf6f0;
@@ -1780,15 +1764,6 @@ main > section:not([class]) > h1 {
   background: var(--ff-by-bg, rgb(48 229 241 / 0.08));
   color: var(--ff-by, var(--accent));
   font-weight: 600;
-}
-.ff-by .logo-mark {
-  width: 18px;
-  height: 18px;
-  border-width: 1.5px;
-}
-.ff-by .logo-mark:after {
-  width: 7px;
-  height: 7px;
 }
 .ff h2 {
   font-size: clamp(44px, 6.5vw, 84px);
@@ -3496,3 +3471,91 @@ main > section:not([class]) > h1 {
   }
 }
 .plan-from { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0; color: var(--muted, inherit); }
+
+/* ---------- Logo ---------- */
+.logo-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-svg {
+  flex: none;
+  display: block;
+  overflow: visible;
+}
+.logo-word {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.logo .logo-word {
+  font-size: 24px;
+}
+.logo-lockup.is-stacked .logo-word {
+  display: grid;
+  gap: 0;
+  font-size: 30px;
+}
+.logo-lockup.is-stacked .logo-word small {
+  line-height: 1.2;
+  margin-top: 4px;
+}
+.logo-word small {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer-brand {
+  display: inline-block;
+}
+.logo-pulse {
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: logo-pulse 2.8s ease-out infinite;
+}
+.logo-svg.is-animated .logo-core {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: logo-beat 2.8s ease-in-out infinite;
+}
+.logo:hover .logo-svg .logo-arm {
+  stroke-dasharray: 4 6;
+  animation: logo-signal 0.6s linear infinite;
+}
+@keyframes logo-pulse {
+  from { transform: scale(1); opacity: 0.7; }
+  70%, to { transform: scale(2); opacity: 0; }
+}
+@keyframes logo-beat {
+  0%, 100% { transform: scale(1); }
+  12% { transform: scale(1.12); }
+  24% { transform: scale(1); }
+}
+@keyframes logo-signal {
+  to { stroke-dashoffset: -10; }
+}
+.ff-by .logo-svg {
+  border-radius: 6px;
+}
+.not-found {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+  padding-block: var(--space-l);
+}
+.not-found h1 {
+  font-size: clamp(40px, 6vw, 72px);
+}
+@media (max-width: 480px) {
+  .logo .logo-word {
+    font-size: 21px;
+  }
+  .logo .logo-svg {
+    width: 34px;
+    height: 34px;
+  }
+}

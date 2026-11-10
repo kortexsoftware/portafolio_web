@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useInView } from "../../../hooks/useInView";
 import { Icon } from "../../ui/Icon";
+import { LogoMark } from "../../ui/Logo";
 
 export const reducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -130,7 +131,7 @@ export const Showcase = ({
             <span className="ff-tag">Proyecto destacado</span>
             <span>{category}</span>
             <span className="ff-by">
-              <i className="logo-mark" aria-hidden="true" /> Desarrollado por
+              <LogoMark variant="gradient" size={20} /> Desarrollado por
               Kortex
             </span>
           </p>

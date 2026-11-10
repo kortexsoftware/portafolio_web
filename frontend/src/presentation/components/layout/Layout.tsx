@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import { Icon } from "../ui/Icon";
+import { Logo } from "../ui/Logo";
 const links = [
   ["quienes-somos", "Quiénes somos"],
   ["productos", "Productos"],
@@ -18,8 +19,7 @@ export const Layout = () => {
       </a>
       <header className="header wrap">
         <Link to="/" className="logo" aria-label="Kortex, inicio">
-          <span className="logo-mark" />
-          KORTEX
+          <Logo variant="gradient" size={40} animated />
         </Link>
         <nav
           id="main-nav"
@@ -55,8 +55,8 @@ export const Layout = () => {
         <div className="wrap">
           <div className="footer-top">
             <div>
-              <Link to="/" className="footer-brand">
-                KORTEX SOFTWARE
+              <Link to="/" className="footer-brand" aria-label="Kortex Software, inicio">
+                <Logo variant="outline" size={52} stacked />
               </Link>
               <p>
                 Venta, implementación y soporte de software para
