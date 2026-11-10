@@ -6,101 +6,31 @@
     "colorMeta": {
       "bg": {
         "role": "neutral",
-        "displayName": "Dark ground",
-        "tonalRamp": [
-          "oklch(15% 0.003 260)",
-          "oklch(25% 0.006 260)",
-          "oklch(35% 0.008 260)",
-          "oklch(45% 0.01 260)",
-          "oklch(60% 0.01 260)",
-          "oklch(75% 0.008 260)",
-          "oklch(85% 0.005 260)",
-          "oklch(95% 0.002 260)"
-        ]
+        "displayName": "Warm white"
       },
       "surface": {
         "role": "neutral",
-        "displayName": "Raised navy",
-        "tonalRamp": [
-          "oklch(15% 0.0075 260)",
-          "oklch(25% 0.015 260)",
-          "oklch(35% 0.020000000000000004 260)",
-          "oklch(45% 0.025 260)",
-          "oklch(60% 0.025 260)",
-          "oklch(75% 0.020000000000000004 260)",
-          "oklch(85% 0.0125 260)",
-          "oklch(95% 0.005000000000000001 260)"
-        ]
+        "displayName": "White panels"
       },
       "text": {
         "role": "neutral",
-        "displayName": "Cool off-white",
-        "tonalRamp": [
-          "oklch(15% 0.0045 270)",
-          "oklch(25% 0.009 270)",
-          "oklch(35% 0.012 270)",
-          "oklch(45% 0.015 270)",
-          "oklch(60% 0.015 270)",
-          "oklch(75% 0.012 270)",
-          "oklch(85% 0.0075 270)",
-          "oklch(95% 0.003 270)"
-        ]
+        "displayName": "Graphite"
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Muted slate",
-        "tonalRamp": [
-          "oklch(15% 0.0075 265)",
-          "oklch(25% 0.015 265)",
-          "oklch(35% 0.020000000000000004 265)",
-          "oklch(45% 0.025 265)",
-          "oklch(60% 0.025 265)",
-          "oklch(75% 0.020000000000000004 265)",
-          "oklch(85% 0.0125 265)",
-          "oklch(95% 0.005000000000000001 265)"
-        ]
+        "displayName": "Muted sage gray"
       },
-      "cyan": {
+      "accent": {
         "role": "primary",
-        "displayName": "Connection cyan",
-        "tonalRamp": [
-          "oklch(15% 0.036 195)",
-          "oklch(25% 0.072 195)",
-          "oklch(35% 0.096 195)",
-          "oklch(45% 0.12 195)",
-          "oklch(60% 0.12 195)",
-          "oklch(75% 0.096 195)",
-          "oklch(85% 0.06 195)",
-          "oklch(95% 0.024 195)"
-        ]
+        "displayName": "Forest green"
       },
-      "pink": {
+      "accent-warm": {
         "role": "secondary",
-        "displayName": "Custom software pink",
-        "tonalRamp": [
-          "oklch(15% 0.048 350)",
-          "oklch(25% 0.096 350)",
-          "oklch(35% 0.128 350)",
-          "oklch(45% 0.16 350)",
-          "oklch(60% 0.16 350)",
-          "oklch(75% 0.128 350)",
-          "oklch(85% 0.08 350)",
-          "oklch(95% 0.032 350)"
-        ]
+        "displayName": "Terracotta"
       },
       "line": {
         "role": "neutral",
-        "displayName": "Panel edge",
-        "tonalRamp": [
-          "oklch(15% 0.0075 265)",
-          "oklch(25% 0.015 265)",
-          "oklch(35% 0.020000000000000004 265)",
-          "oklch(45% 0.025 265)",
-          "oklch(60% 0.025 265)",
-          "oklch(75% 0.020000000000000004 265)",
-          "oklch(85% 0.0125 265)",
-          "oklch(95% 0.005000000000000001 265)"
-        ]
+        "displayName": "Soft neutral border"
       }
     },
     "typographyMeta": {
@@ -109,17 +39,23 @@
         "purpose": "Responsive hero headings; sizes are documented in DESIGN.md."
       }
     },
-    "shadows": [],
+    "shadows": [
+      {
+        "name": "panel",
+        "value": "0 8px 28px rgb(43 60 39 / 3%)",
+        "purpose": "Gentle panel separation."
+      }
+    ],
     "motion": [
       {
-        "name": "button-transition",
-        "value": "background 0.18s, transform 0.18s",
-        "purpose": "Button hover."
+        "name": "press",
+        "value": "scale(0.97)",
+        "purpose": "Immediate control feedback."
       },
       {
-        "name": "product-transition",
-        "value": "border-color 0.2s, transform 0.2s",
-        "purpose": "Product card hover."
+        "name": "button",
+        "value": "background 160ms ease-out, transform 180ms ease-out",
+        "purpose": "Restrained hover and press transitions."
       }
     ],
     "breakpoints": [
@@ -146,74 +82,44 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Explorar productos",
+      "description": "Primary action with immediate press feedback.",
       "html": "<button class=\"ds-button\">Explorar productos</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 28px;border:1px solid transparent;border-radius:999px;font:600 15px/1.2 Outfit,sans-serif;cursor:pointer;transition:background .18s,transform .18s}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-nav a:focus-visible,.ds-card:focus-visible{outline:3px solid var(--cyan,#30e5f1);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-button{background:var(--cyan,#30e5f1);color:#07131b;}.ds-button:hover{background:#77f1fa}"
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 25px;border:1px solid transparent;border-radius:999px;font:500 15px/1.2 Outfit,sans-serif}.ds-button:focus-visible{outline:3px solid #246b5e;outline-offset:5px}.ds-button:active{transform:scale(.97)}.ds-button{background:#246b5e;color:#fff}.ds-button:hover{background:#195447}"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Hablar con ventas",
+      "description": "Secondary action.",
       "html": "<button class=\"ds-button\">Hablar con ventas</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 28px;border:1px solid transparent;border-radius:999px;font:600 15px/1.2 Outfit,sans-serif;cursor:pointer;transition:background .18s,transform .18s}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-nav a:focus-visible,.ds-card:focus-visible{outline:3px solid var(--cyan,#30e5f1);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-button{background:transparent;color:var(--text,#e9eaf2);border-color:#30394f;}.ds-button:hover{background:#182035}"
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 25px;border:1px solid transparent;border-radius:999px;font:500 15px/1.2 Outfit,sans-serif}.ds-button:focus-visible{outline:3px solid #246b5e;outline-offset:5px}.ds-button:active{transform:scale(.97)}.ds-button{background:transparent;color:#282d2a;border-color:#d4d9d2}.ds-button:hover{background:#edf1eb}"
     },
     {
-      "name": "Pink Button",
+      "name": "Warm Button",
       "kind": "button",
-      "refersTo": "button-pink",
-      "description": "Agendar demo gratis",
+      "refersTo": "button-warm",
+      "description": "Demo action.",
       "html": "<button class=\"ds-button\">Agendar demo gratis</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 28px;border:1px solid transparent;border-radius:999px;font:600 15px/1.2 Outfit,sans-serif;cursor:pointer;transition:background .18s,transform .18s}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-nav a:focus-visible,.ds-card:focus-visible{outline:3px solid var(--cyan,#30e5f1);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-button{background:var(--pink,#ff328d);color:#150614;}.ds-button:hover{background:#ff71ac}"
-    },
-    {
-      "name": "Contact field",
-      "kind": "input",
-      "refersTo": "field",
-      "description": "Visible label and inset field.",
-      "html": "<label class=\"ds-label\">Correo<input class=\"ds-field\" type=\"email\" autocomplete=\"email\"></label>",
-      "css": ".ds-label{display:grid;gap:9px;color:var(--text,#e9eaf2);font:500 14px Outfit,sans-serif}.ds-field{background:var(--bg,#080b14);color:var(--text,#e9eaf2);padding:13px;border:1px solid #30374d;border-radius:12px;font:16px Outfit,sans-serif;caret-color:var(--cyan,#30e5f1)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-nav a:focus-visible,.ds-card:focus-visible{outline:3px solid var(--cyan,#30e5f1);outline-offset:5px}"
-    },
-    {
-      "name": "Navigation",
-      "kind": "nav",
-      "description": "Compact desktop section links.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#productos\">Productos</a><a href=\"#contacto\">Contacto</a></nav>",
-      "css": ".ds-nav{display:flex;gap:28px;font:500 13px Outfit,sans-serif}.ds-nav a{color:var(--text,#e9eaf2);text-decoration:none}.ds-nav a:hover{color:var(--cyan,#30e5f1)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-nav a:focus-visible,.ds-card:focus-visible{outline:3px solid var(--cyan,#30e5f1);outline-offset:5px}"
-    },
-    {
-      "name": "Project tag",
-      "kind": "chip",
-      "description": "Informational outlined project metadata.",
-      "html": "<span class=\"ds-tag\">Portafolio</span>",
-      "css": ".ds-tag{display:inline-block;border:1px solid #244550;border-radius:20px;padding:3px 9px;color:var(--cyan,#30e5f1);font:11px Outfit,sans-serif}"
-    },
-    {
-      "name": "Content card",
-      "kind": "card",
-      "refersTo": "card",
-      "description": "Flat tonal container.",
-      "html": "<article class=\"ds-card\"><h3>Servicios</h3><p>Soluciones para tu empresa.</p></article>",
-      "css": ".ds-card{background:var(--surface,#101525);border:1px solid var(--line,#242b40);padding:28px;border-radius:24px;font-family:Outfit,sans-serif;color:var(--text,#e9eaf2)}.ds-card h3{font-size:24px;line-height:1.15;margin:0 0 16px}.ds-card p{color:var(--muted,#9ca5ba);line-height:1.55;margin:0}"
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 25px;border:1px solid transparent;border-radius:999px;font:500 15px/1.2 Outfit,sans-serif}.ds-button:focus-visible{outline:3px solid #246b5e;outline-offset:5px}.ds-button:active{transform:scale(.97)}.ds-button{background:#a6533d;color:#fff}.ds-button:hover{background:#87412e}"
     }
   ],
   "narrative": {
-    "northStar": "Connected intelligence",
-    "overview": "The supplied reference sets a dark, spacious world with assertive geometric headings. Cyan connects the system and directs action; pink supplies a second, deliberate emphasis. This name describes the implemented direction rather than a new brand claim.",
+    "northStar": "Warm clarity",
+    "overview": "A light, calm and professional Kortex interface guided by Apple Design principles.",
     "keyCharacteristics": [
-      "Heavy Outfit headings and quiet supporting copy.",
-      "Dark tonal surfaces with crisp borders.",
-      "Rounded controls and cyan/pink contrast."
+      "Warm white surfaces and graphite text.",
+      "Forest green actions and restrained terracotta accents.",
+      "Immediate press feedback and subtle functional translucency."
     ],
     "rules": [],
     "dos": [
-      "Do preserve the supplied dark/cyan/pink visual direction.",
-      "Do keep focus visible and honor reduced-motion preferences.",
-      "Do use local Outfit assets and the established responsive layout changes."
+      "Preserve API and use-case boundaries.",
+      "Keep content opaque and readable.",
+      "Respect reduced motion and reduced transparency."
     ],
     "donts": [
-      "Don't add shadows to the flat tonal system without a deliberate design change.",
-      "Don't turn placeholder reviews, logos or projects into invented proof."
+      "Do not reintroduce neon or page-wide dark surfaces.",
+      "Do not overwrite independent project showcase identities."
     ]
   }
 }

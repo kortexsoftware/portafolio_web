@@ -29,7 +29,7 @@ Visitors explore solutions, review the portfolio and request contact or a demons
 
 ## Brand Commitments
 
-Kortex; Spanish copy; the supplied responsive dark/cyan/pink reference. Visual rules live in DESIGN.md.
+Kortex; Spanish copy; a warm, light and professional interface inspired by Apple Design principles. This direction supersedes the original dark/cyan/pink reference at the user’s request. Visual rules live in DESIGN.md.
 
 ## Evidence on Hand
 

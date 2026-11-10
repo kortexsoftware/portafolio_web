@@ -1,25 +1,20 @@
 # Kortex home
 
 Target: `frontend/src/presentation/pages/HomePage.tsx` · Route: `/`
-
 Mode: Persuade
 
-Audience: companies in Chile exploring software. Job: understand the offering and initiate an enquiry. Primary opening action: explore products; conversion action: send the contact form. The supplied dark/cyan/pink desktop and mobile reference governs the composition.
+## Direction
 
-## Direction contract
+The user requested a warmer, more professional Apple-inspired redesign, replacing the previous dark reference. Warm white, graphite, forest green and terracotta create a calm commercial surface. Outfit preserves Kortex's identity. The opening message and actions lead; a prominent network diagram explains connected services. The pale oval was removed after user feedback; the graphic now has a saturated Kortex core, icon-bearing nodes and stronger primary connections.
 
-**THESIS:** Kortex connects business functions through software and human support; the page expresses this connection through a network and a staged commercial story.
+## Composition
 
-**OWN-WORLD:** Dark ground, heavy Outfit headings, cyan links and actions, pink custom-software emphasis, rounded panels and pills.
+Desktop: floating navigation → split hero → quiet service strip → three implementation steps → demo invitation → light footer. Mobile: the network leads, followed by the message and actions. Team, products, projects, clients, plans and contact remain dedicated routes.
 
-**STORY:** Hero → team → products → implementation process → projects → customer-proof placeholders → enquiry-based plans → demo invitation → contact.
+## Behavior
 
-**FIRST VIEWPORT:** Desktop pairs the four-line headline “Software / que / piensa. / contigo.” and two actions with a right-hand network diagram. Mobile keeps “Software que” on its first line, puts the network above the headline and stacks the actions. An angled cyan ticker closes the introduction. The reference explicitly supplies the hero badge and eyebrows.
+Immediate press feedback, native scrolling, visible keyboard focus, solid content cards, subtle translucent navigation with an opaque accessibility fallback. Existing plan expansion, navigation and lead submission behavior are retained.
 
-**FORM:** User-supplied reference; no generated concept selection. `seed: none (unavailable)`
+## Scope and evidence
 
-**FINISH:** unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
-
-## Evidence and unresolved decisions
-
-Projects use the existing API, with explicit loading, empty and error treatment. The contact form uses the existing lead use case. Editorial products and plans remain presentation content. Customer logos, testimonials, prices and direct contact details require confirmation. Review stars are decorative placeholders, not verified ratings. Final rendered review and API validation are owned by the implementation task; this document does not claim they passed.
+Presentation changes only; domain, application, repositories and project showcase work are preserved. Rendered at 320, 390, 768, 1440 and 1920px without horizontal overflow across seven routes. API-dependent content is tested with mock responses; no live lead submission is implied. Business placeholders remain unconfirmed.

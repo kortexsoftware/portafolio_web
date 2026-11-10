@@ -27,14 +27,7 @@ export const Hero = () => (
           <span className="hero-badge">
             <i /> Software para empresas en Chile
           </span>
-          <h1>
-            Software <br className="desktop-break" />
-            que
-            <br />
-            <span>piensa.</span>
-            <br />
-            contigo.
-          </h1>
+          <h1>Software que <span className="hero-thought">piensa contigo.</span></h1>
           <p>
             Kortex es el cerebro digital de tu empresa: licencias,
             implementación y soporte conectados en un solo lugar.

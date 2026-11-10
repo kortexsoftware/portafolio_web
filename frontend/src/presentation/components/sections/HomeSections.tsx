@@ -5,7 +5,7 @@ import { Icon } from "../ui/Icon";
 export const AboutSection = () => (
   <section id="quienes-somos" className="section wrap about-section">
     <div>
-      <p className="eyebrow">Quiénes somos</p>
+      <p className="eyebrow">Nuestra esencia</p>
       <h2>
         Somos el equipo
         <br />
@@ -166,20 +166,28 @@ export const PlansSection = () => {
     </section>
   );
 };
-export const DemoSection = () => (
+type DemoProps = {
+  title?: string;
+  accent?: string;
+  text?: string;
+  cta?: string;
+};
+export const DemoSection = ({
+  title = "Conecta tu empresa al",
+  accent = "cerebro Kortex.",
+  text = "Agenda una demo gratuita y te mostramos cómo funciona con tus propios procesos.",
+  cta = "Agendar demo gratis",
+}: DemoProps) => (
   <section className="wrap demo-wrap">
     <div className="demo">
       <h2>
-        Conecta tu empresa al
+        {title}
         <br />
-        <span>cerebro Kortex.</span>
+        <span>{accent}</span>
       </h2>
-      <p>
-        Agenda una demo gratuita y te mostramos cómo
-        <br /> funciona con tus propios procesos.
-      </p>
+      <p>{text}</p>
       <Link className="btn btn-pink" to="/contacto">
-        Agendar demo gratis
+        {cta}
       </Link>
     </div>
   </section>

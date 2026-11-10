@@ -3,7 +3,7 @@ import { Icon } from "../ui/Icon";
 export const ContactSection = () => (
   <section id="contacto" className="section wrap contact-section">
     <div>
-      <p className="eyebrow">Contacto</p>
+      <p className="eyebrow">Escríbenos</p>
       <h2>
         Hablemos de tu
         <br />
