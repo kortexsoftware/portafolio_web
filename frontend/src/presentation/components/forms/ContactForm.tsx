@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { container } from "@/di/container";
+import { contact } from "../../content/contact";
 export const ContactForm = () => {
   const [params] = useSearchParams();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -23,7 +24,7 @@ export const ContactForm = () => {
       setStatus("sent");
     } catch {
       setError(
-        "No pudimos enviar tu mensaje. Revisa tu conexión e inténtalo nuevamente.",
+        `No pudimos enviar tu mensaje. Escríbenos directo a ${contact.email} o por WhatsApp al ${contact.phoneDisplay}.`,
       );
       setStatus("error");
     }

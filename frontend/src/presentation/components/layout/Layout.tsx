@@ -1,3 +1,4 @@
+import { contact } from "../../content/contact";
 import { useState } from "react";
 import { Link, NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import { Icon } from "../ui/Icon";
@@ -62,6 +63,12 @@ export const Layout = () => {
                 Venta, implementación y soporte de software para
                 <br /> empresas en Chile.
               </p>
+              <div className="footer-contact">
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                <a href={contact.whatsappHref} target="_blank" rel="noreferrer">
+                  WhatsApp {contact.phoneDisplay}
+                </a>
+              </div>
               <small>© {new Date().getFullYear()} Kortex Software.</small>
             </div>
             <nav aria-label="Enlaces del pie">

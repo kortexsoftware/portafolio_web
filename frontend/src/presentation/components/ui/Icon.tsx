@@ -8,7 +8,8 @@ export type IconName =
   | "pin"
   | "arrow"
   | "menu"
-  | "close";
+  | "close"
+  | "chat";
 const paths: Record<IconName, string> = {
   grid: "M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z",
   cart: "M3 4h2l3 12h10l3-9H6 M9 20h.01 M18 20h.01",
@@ -21,6 +22,7 @@ const paths: Record<IconName, string> = {
   arrow: "M5 12h14 m-6-6 6 6-6 6",
   menu: "M5 8h14 M9 16h10",
   close: "m6 6 12 12 M18 6 6 18",
+  chat: "M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z M8.5 11.5h.01 M12 11.5h.01 M15.5 11.5h.01",
 };
 export const Icon = ({ name }: { name: IconName }) => (
   <svg

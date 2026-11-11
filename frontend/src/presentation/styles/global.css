@@ -752,7 +752,8 @@ em {
   display: grid;
   gap: 12px;
 }
-.contact-details > div {
+.contact-details > div,
+.contact-details > a {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1170,7 +1171,8 @@ main > section:not([class]) > h1 {
   .contact-details p {
     font-size: 14px;
   }
-  .contact-details > div {
+  .contact-details > div,
+  .contact-details > a {
     padding: 14px;
     gap: 12px;
   }
@@ -1449,7 +1451,8 @@ main > section:not([class]) > h1 {
   .contact-section h2 {
     margin-bottom: 24px;
   }
-  .contact-details > div {
+  .contact-details > div,
+  .contact-details > a {
     padding: 15px;
     border-radius: 17px;
   }
@@ -2834,7 +2837,8 @@ main > section:not([class]) > h1 {
 .plan,
 .values > div,
 .card-base,
-.contact-details > div {
+.contact-details > div,
+.contact-details > a {
   border-radius: var(--radius);
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
@@ -4197,4 +4201,49 @@ main > section:not([class]) > h1 {
   .founders-actions .btn {
     flex: 1 1 100%;
   }
+}
+
+/* Contacto directo */
+.contact-lead {
+  font-size: 18px;
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+.contact-details > a {
+  color: inherit;
+  text-decoration: none;
+}
+.contact-details > a p {
+  overflow-wrap: anywhere;
+}
+.contact-details > a:hover {
+  transform: translateY(-2px);
+  border-color: #c9d6cb;
+}
+.contact-details > a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.contact-go {
+  margin-left: auto;
+  color: var(--accent);
+  display: grid;
+  flex-shrink: 0;
+}
+.contact-go svg {
+  width: 18px;
+}
+.footer-contact {
+  display: grid;
+  gap: 6px;
+  margin-block: 14px;
+  font-size: 14px;
+}
+.footer-contact a {
+  color: var(--text);
+  text-decoration: none;
+  width: fit-content;
+}
+.footer-contact a:hover {
+  color: var(--accent);
 }

@@ -1,3 +1,4 @@
+import { contact } from "../../content/contact";
 import { ContactForm } from "../forms/ContactForm";
 import { Icon } from "../ui/Icon";
 export const ContactSection = () => (
@@ -9,29 +10,54 @@ export const ContactSection = () => (
         <br />
         proyecto
       </h2>
+      <p className="contact-lead">
+        Escríbenos por el canal que te acomode. También puedes dejarnos tus
+        datos en el formulario y te contactamos nosotros.
+      </p>
       <div className="contact-details">
-        <div>
+        <a href={contact.whatsappHref} target="_blank" rel="noreferrer">
           <span className="icon-box">
+            <Icon name="chat" />
+          </span>
+          <p>
+            <small>WhatsApp</small>
+            {contact.phoneDisplay}
+          </p>
+          <span className="contact-go" aria-hidden="true">
+            <Icon name="arrow" />
+          </span>
+        </a>
+        <a href={`mailto:${contact.email}`}>
+          <span className="icon-box pink">
             <Icon name="mail" />
           </span>
           <p>
-            <small>Correo</small>Cuéntanos a través del formulario
+            <small>Correo</small>
+            {contact.email}
           </p>
-        </div>
-        <div>
-          <span className="icon-box pink">
+          <span className="contact-go" aria-hidden="true">
+            <Icon name="arrow" />
+          </span>
+        </a>
+        <a href={contact.phoneHref}>
+          <span className="icon-box">
             <Icon name="phone" />
           </span>
           <p>
-            <small>Atención comercial</small>Solicita que te contactemos
+            <small>Llámanos</small>
+            {contact.phoneDisplay}
           </p>
-        </div>
+          <span className="contact-go" aria-hidden="true">
+            <Icon name="arrow" />
+          </span>
+        </a>
         <div>
-          <span className="icon-box">
+          <span className="icon-box pink">
             <Icon name="pin" />
           </span>
           <p>
-            <small>Ubicación</small>Chile · Atención online
+            <small>Ubicación</small>
+            {contact.location}
           </p>
         </div>
       </div>
