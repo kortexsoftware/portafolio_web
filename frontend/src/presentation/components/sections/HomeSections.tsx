@@ -75,7 +75,7 @@ export const ProcessSection = () => (
     <ol className="steps">
       {steps.map((step, i) => (
         <li key={step.title}>
-          <span className="step-number">0{i + 1}</span>
+          <span className="perk-number">0{i + 1}</span>
           <h3>{step.title}</h3>
           <p>{step.description}</p>
         </li>
@@ -83,42 +83,93 @@ export const ProcessSection = () => (
     </ol>
   </section>
 );
-export const ClientsSection = () => (
-  <>
-    <section
-      className="client-strip"
-      aria-label="Empresas que confían en Kortex"
-    >
-      <p>Un espacio para las empresas que crecen con Kortex</p>
-      <div className="client-logos">
-        {Array.from({ length: 7 }, (_, i) => (
-          <span key={i}>TU EMPRESA AQUÍ</span>
-        ))}
+const founderPerks = [
+  {
+    title: "Precio de fundador",
+    description:
+      "Un descuento especial en tu primer plan por confiar en nosotros desde el inicio.",
+  },
+  {
+    title: "Soporte prioritario",
+    description:
+      "Tus consultas pasan primero en la fila durante los primeros meses de trabajo.",
+  },
+  {
+    title: "Tu caso, publicado",
+    description:
+      "Mostramos tu proyecto en este sitio, con tu logo y un enlace a tu empresa.",
+  },
+];
+const clientPromises = [
+  "Asesoría para elegir solo lo que tu empresa necesita.",
+  "Implementación y capacitación junto a tu equipo.",
+  "Personas reales detrás del soporte.",
+  "Precios claros, sin letra chica.",
+];
+export const FoundersSection = () => (
+  <section id="clientes" className="section wrap founders">
+    <div className="founders-intro">
+      <p className="eyebrow">Clientes fundadores</p>
+      <h2>
+        Buscamos a nuestras
+        <br />
+        primeras <em>empresas.</em>
+      </h2>
+      <p>
+        Kortex está partiendo y queremos crecer junto a quienes confíen
+        primero. Las empresas fundadoras reciben condiciones que no vamos a
+        repetir.
+      </p>
+      <div className="founders-actions">
+        <Link className="btn" to="/contacto">
+          Quiero ser fundador
+        </Link>
+        <Link className="btn btn-outline" to="/planes">
+          Ver planes
+        </Link>
       </div>
-    </section>
-    <section id="clientes" className="section wrap">
+      <p className="founders-note">Cupos limitados.</p>
+    </div>
+    <ol className="founders-perks">
+      {founderPerks.map((perk, i) => (
+        <li key={perk.title}>
+          <span className="perk-number">0{i + 1}</span>
+          <div>
+            <h3>{perk.title}</h3>
+            <p>{perk.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+);
+export const ClientPromiseSection = () => (
+  <section className="section wrap client-promise">
+    <div>
       <p className="eyebrow pink-text">Reseñas</p>
-      <h2>Lo que dicen nuestros clientes</h2>
-      <div className="reviews-grid horizontal-cards">
-        {[0, 1, 2].map((i) => (
-          <article className={`review review-${i}`} key={i}>
-            <div className="review-stars" aria-hidden="true">
-              ★★★★★
-            </div>
-            <blockquote>
-              Este espacio espera una historia real de nuestros clientes.
-            </blockquote>
-            <div className="review-author">
-              <span className="avatar">K</span>
-              <p>
-                Tu experiencia cuenta<small>Testimonios próximamente</small>
-              </p>
-            </div>
-          </article>
+      <h2>
+        Aquí no habrá reseñas
+        <br />
+        <em>inventadas.</em>
+      </h2>
+      <p>
+        Cuando nuestros primeros clientes cuenten su experiencia, la vas a
+        leer en esta página, con nombre y empresa. Mientras tanto, mira lo que
+        ya hemos construido.
+      </p>
+      <Link className="btn btn-outline" to="/proyectos">
+        Ver proyectos
+      </Link>
+    </div>
+    <div className="promise-card">
+      <h3>Lo que cada cliente puede esperar</h3>
+      <ul>
+        {clientPromises.map((item) => (
+          <li key={item}>{item}</li>
         ))}
-      </div>
-    </section>
-  </>
+      </ul>
+    </div>
+  </section>
 );
 export const PlansSection = () => {
   const [expanded, setExpanded] = useState(false);

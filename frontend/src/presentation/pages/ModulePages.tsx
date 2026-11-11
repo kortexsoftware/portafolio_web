@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 import { PageHeader } from "../components/layout/PageHeader";
 import {
   AboutSection,
-  ClientsSection,
+  ClientPromiseSection,
   DemoSection,
+  FoundersSection,
   PlansSection,
   ProcessSection,
   ProductsSection,
@@ -98,13 +99,16 @@ export const ClientsPage = () => (
     <PageHeader
       index="04"
       title="Clientes"
-      lead="Las empresas que trabajan con Kortex y lo que cuentan de la experiencia."
+      lead="Estamos sumando a nuestras primeras empresas. Esto es lo que ganan por llegar primero."
       visual={<ClientsVisual />}
     />
-    <ClientsSection />
+    <FoundersSection />
+    <Band>
+      <ClientPromiseSection />
+    </Band>
     <DemoSection
       title="Tu empresa puede"
-      accent="ser la siguiente."
+      accent="ser la primera."
       text="Agenda una demo y revisamos juntos cómo Kortex encaja en tu día a día."
     />
   </>
