@@ -4874,3 +4874,30 @@ main > section:not([class]) > h1 {
 .network-hit {
   fill: transparent;
 }
+.network-link {
+  cursor: pointer;
+  outline: none;
+}
+.network-focus-ring {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.network-link:focus-visible .network-focus-ring {
+  opacity: 1;
+}
+.network-link:hover .network-service,
+.network-link:focus-visible .network-service {
+  transform: scale(1.14);
+}
+.network-link:hover .network-label,
+.network-link:focus-visible .network-label {
+  fill: var(--accent);
+}
+@media (prefers-contrast: more) {
+  .network-focus-ring {
+    stroke: #000;
+  }
+}

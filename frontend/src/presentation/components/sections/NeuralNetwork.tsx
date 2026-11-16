@@ -165,6 +165,38 @@ export const NeuralNetwork = () => {
     setHot(null);
   };
 
+  // Ajusta el fondo de cada etiqueta al ancho real del texto: el tamaño de
+  // letra cambia en móvil y depende de que la fuente haya cargado
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const PAD_X = 12;
+    const PAD_Y = 5;
+    const fit = () => {
+      root.querySelectorAll<SVGTextElement>(".network-label").forEach((text) => {
+        const bg = text.previousElementSibling;
+        if (!(bg instanceof SVGRectElement)) return;
+        const box = text.getBBox();
+        if (!box.width) return;
+        const h = box.height + PAD_Y * 2;
+        bg.setAttribute("x", (box.x - PAD_X).toFixed(1));
+        bg.setAttribute("y", (box.y - PAD_Y).toFixed(1));
+        bg.setAttribute("width", (box.width + PAD_X * 2).toFixed(1));
+        bg.setAttribute("height", h.toFixed(1));
+        bg.setAttribute("rx", (h / 2).toFixed(1));
+      });
+    };
+    fit();
+    let alive = true;
+    document.fonts?.ready.then(() => alive && fit());
+    const mq = window.matchMedia("(max-width: 480px)");
+    mq.addEventListener("change", fit);
+    return () => {
+      alive = false;
+      mq.removeEventListener("change", fit);
+    };
+  }, []);
+
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
@@ -405,6 +437,13 @@ export const NeuralNetwork = () => {
                   r={n.r + 24}
                 />
                 {renderNodeBody(n, i)}
+                {/* Anillo de foco para navegación con teclado */}
+                <circle
+                  className="network-focus-ring"
+                  cx={n.x}
+                  cy={n.y}
+                  r={n.r + 8}
+                />
               </a>
             ) : (
               renderNodeBody(n, i)
