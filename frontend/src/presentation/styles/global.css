@@ -4869,3 +4869,8 @@ main > section:not([class]) > h1 {
 .footer-contact a:hover {
   color: var(--accent);
 }
+
+/* Nodos navegables del grafo: área de toque invisible */
+.network-hit {
+  fill: transparent;
+}

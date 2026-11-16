@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Icon, type IconName } from "../ui/Icon";
 
 type Node = {
@@ -123,6 +124,7 @@ export const NeuralNetwork = () => {
   /** Cursor en coordenadas del viewBox; null fuera del grafo. */
   const pointer = useRef<{ x: number; y: number } | null>(null);
   const hot = useRef<number | null>(null);
+  const navigate = useNavigate();
 
   // Resaltado de módulo: funciona también con movimiento reducido
   const setHot = (index: number | null) => {
@@ -149,6 +151,13 @@ export const NeuralNetwork = () => {
       return Math.hypot(pt.x - n.x, pt.y - n.y) < n.r + 26;
     });
     setHot(near ?? null);
+  };
+
+  // Navegación SPA; Ctrl/Cmd/Shift/clic medio quedan en manos del navegador
+  const goTo = (e: React.MouseEvent<Element>, to: string) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    navigate(to);
   };
 
   const onPointerLeave = () => {
@@ -194,7 +203,8 @@ export const NeuralNetwork = () => {
         const ph = phase[i];
         let tx = 0;
         let ty = 0;
-        if (p && i !== CENTER) {
+        // El nodo resaltado no huye del cursor, para que se pueda tocar
+        if (p && i !== CENTER && i !== hot.current) {
           const dx = n.x - p.x;
           const dy = n.y - p.y;
           const dist = Math.hypot(dx, dy) || 1;
@@ -283,11 +293,11 @@ export const NeuralNetwork = () => {
       className="network"
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
-      role="img"
-      aria-label="Kortex conecta quiénes somos, equipo, productos, proyectos, clientes, planes y contacto"
+      role="navigation"
+      aria-label="Secciones de Kortex"
     >
-      <svg ref={svgRef} viewBox="0 0 560 480">
-        <g ref={depthRef} className="network-depth">
+      <svg ref={svgRef} viewBox="0 0 560 480" role="group">
+        <g ref={depthRef} className="network-depth" aria-hidden="true">
           {depthLinks.map(([a, b], i) => (
             <line
               key={i}
@@ -301,7 +311,7 @@ export const NeuralNetwork = () => {
             <circle key={i} cx={x} cy={y} r={r} />
           ))}
         </g>
-        <g className="network-lines">
+        <g className="network-lines" aria-hidden="true">
           {edges.map(([a, b], i) => (
             <line
               key={i}
@@ -322,7 +332,7 @@ export const NeuralNetwork = () => {
             />
           ))}
         </g>
-        <g className="network-signals">
+        <g className="network-signals" aria-hidden="true">
           {Array.from({ length: PULSES }, (_, i) => (
             <circle
               key={i}
@@ -343,6 +353,7 @@ export const NeuralNetwork = () => {
               nodeRefs.current[i] = el;
             }}
             className={i === CENTER ? "network-core" : "network-node"}
+            aria-hidden={n.to ? undefined : true}
           >
             {i === CENTER ? (
               <>
@@ -376,54 +387,27 @@ export const NeuralNetwork = () => {
                   KORTEX
                 </text>
               </>
-            ) : (
-              <>
-                {n.r >= 9 && (
-                  <circle
-                    className="network-halo"
-                    cx={n.x}
-                    cy={n.y}
-                    r={n.r}
-                    fill={n.fill}
-                    style={{ animationDelay: `${-i * 0.6}s` }}
-                  />
-                )}
+            ) : n.to ? (
+              // Nodo de sección: enlace real (clic, toque, Tab + Enter)
+              <a
+                href={n.to}
+                className="network-link"
+                aria-label={`Ir a ${n.label}`}
+                onClick={(e) => goTo(e, n.to!)}
+                onFocus={() => setHot(i)}
+                onBlur={() => setHot(null)}
+              >
+                {/* Área de toque ampliada (incluye la etiqueta) */}
                 <circle
-                  className={n.icon ? "network-service" : "network-satellite"}
+                  className="network-hit"
                   cx={n.x}
-                  cy={n.y}
-                  r={n.r}
-                  fill={n.fill}
+                  cy={n.y + 12}
+                  r={n.r + 24}
                 />
-                {n.icon && (
-                  <g
-                    className="network-service-icon"
-                    transform={`translate(${n.x - 11} ${n.y - 11})`}
-                  >
-                    <Icon name={n.icon} />
-                  </g>
-                )}
-                {n.label && (
-                  <g>
-                    <rect
-                      className="network-label-bg"
-                      x={n.x - (n.label.length * 4.5 + 12)}
-                      y={n.y + (n.labelDy ?? 0) - 19}
-                      width={n.label.length * 9 + 24}
-                      height={29}
-                      rx={14.5}
-                    />
-                    <text
-                      textAnchor="middle"
-                      className="network-label"
-                      x={n.x + (n.labelDx ?? 0)}
-                      y={n.y + (n.labelDy ?? 0)}
-                    >
-                      {n.label}
-                    </text>
-                  </g>
-                )}
-              </>
+                {renderNodeBody(n, i)}
+              </a>
+            ) : (
+              renderNodeBody(n, i)
             )}
           </g>
         ))}
@@ -431,3 +415,54 @@ export const NeuralNetwork = () => {
     </div>
   );
 };
+
+/** Círculo, ícono y etiqueta de un nodo (sección o satélite). */
+const renderNodeBody = (n: Node, i: number) => (
+  <>
+    {n.r >= 9 && (
+      <circle
+        className="network-halo"
+        cx={n.x}
+        cy={n.y}
+        r={n.r}
+        fill={n.fill}
+        style={{ animationDelay: `${-i * 0.6}s` }}
+      />
+    )}
+    <circle
+      className={n.icon ? "network-service" : "network-satellite"}
+      cx={n.x}
+      cy={n.y}
+      r={n.r}
+      fill={n.fill}
+    />
+    {n.icon && (
+      <g
+        className="network-service-icon"
+        transform={`translate(${n.x - 11} ${n.y - 11})`}
+      >
+        <Icon name={n.icon} />
+      </g>
+    )}
+    {n.label && (
+      <g>
+        <rect
+          className="network-label-bg"
+          x={n.x - (n.label.length * 4.5 + 12)}
+          y={n.y + (n.labelDy ?? 0) - 19}
+          width={n.label.length * 9 + 24}
+          height={29}
+          rx={14.5}
+        />
+        <text
+          textAnchor="middle"
+          className="network-label"
+          x={n.x + (n.labelDx ?? 0)}
+          y={n.y + (n.labelDy ?? 0)}
+        >
+          {n.label}
+        </text>
+      </g>
+    )}
+  </>
+);
