@@ -15,8 +15,10 @@ import { FullFragrance } from "../components/sections/showcase/FullFragrance";
 import { StrongerFit } from "../components/sections/showcase/StrongerFit";
 import { LoncocheTdm } from "../components/sections/showcase/LoncocheTdm";
 import { HealUp } from "../components/sections/showcase/HealUp";
+import { BarberiaApp } from "../components/sections/showcase/BarberiaApp";
 import { ProjectsIndex } from "../components/sections/showcase/ProjectsIndex";
 import { ContactSection } from "../components/sections/ContactSection";
+import { TeamSection } from "../components/sections/TeamSection";
 import {
   AboutVisual,
   ClientsVisual,
@@ -24,6 +26,7 @@ import {
   PlansVisual,
   ProductsVisual,
   ProjectsVisual,
+  TeamVisual,
 } from "../components/visuals/PageVisuals";
 
 /** Franja de ancho completo con fondo alterno para separar módulos. */
@@ -52,10 +55,28 @@ export const AboutPage = () => (
   </>
 );
 
-export const ProductsPage = () => (
+export const TeamPage = () => (
   <>
     <PageHeader
       index="02"
+      title="Equipo"
+      lead="Conoce a las personas que convierten ideas y operaciones en productos digitales."
+      visual={<TeamVisual />}
+    />
+    <TeamSection />
+    <DemoSection
+      title="Trabajemos como"
+      accent="un solo equipo."
+      text="Cuéntanos qué quieres construir y te mostramos cómo podemos abordarlo juntos."
+      cta="Cuéntanos tu proyecto"
+    />
+  </>
+);
+
+export const ProductsPage = () => (
+  <>
+    <PageHeader
+      index="03"
       title="Productos"
       lead="Software para gestionar, vender, facturar y crecer, con implementación y soporte incluidos."
       visual={<ProductsVisual />}
@@ -76,7 +97,7 @@ export const ProductsPage = () => (
 export const ProjectsPage = () => (
   <>
     <PageHeader
-      index="03"
+      index="04"
       title="Proyectos"
       lead="Productos que diseñamos y construimos de punta a punta."
       visual={<ProjectsVisual />}
@@ -84,8 +105,9 @@ export const ProjectsPage = () => (
     <ProjectsIndex />
     <div className="showcase-stack">
       <FullFragrance />
-      <StrongerFit />
       <LoncocheTdm />
+      <BarberiaApp />
+      <StrongerFit />
       <HealUp />
     </div>
     <Band>
@@ -97,7 +119,7 @@ export const ProjectsPage = () => (
 export const ClientsPage = () => (
   <>
     <PageHeader
-      index="04"
+      index="05"
       title="Clientes"
       lead="Estamos sumando a nuestras primeras empresas. Esto es lo que ganan por llegar primero."
       visual={<ClientsVisual />}
@@ -117,7 +139,7 @@ export const ClientsPage = () => (
 export const PlansPage = () => (
   <>
     <PageHeader
-      index="05"
+      index="06"
       title="Planes"
       lead="Precios claros para tu sitio web, desde landing pages hasta tiendas online."
       visual={<PlansVisual />}
@@ -135,7 +157,7 @@ export const PlansPage = () => (
 export const ContactPage = () => (
   <>
     <PageHeader
-      index="06"
+      index="07"
       title="Contacto"
       lead="Cuéntanos qué necesitas y te respondemos con una propuesta."
       visual={<ContactVisual />}

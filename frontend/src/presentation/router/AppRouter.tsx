@@ -8,6 +8,7 @@ import {
   PlansPage,
   ProductsPage,
   ProjectsPage,
+  TeamPage,
 } from "../pages/ModulePages";
 import { NotFoundPage } from "../pages/NotFoundPage";
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/quienes-somos", element: <AboutPage /> },
+      { path: "/equipo", element: <TeamPage /> },
       { path: "/productos", element: <ProductsPage /> },
       { path: "/proyectos", element: <ProjectsPage /> },
       { path: "/clientes", element: <ClientsPage /> },

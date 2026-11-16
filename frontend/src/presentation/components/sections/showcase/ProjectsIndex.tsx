@@ -3,10 +3,11 @@ import { reducedMotion } from "./Showcase";
 
 const items = [
   { id: "fullfragrance", index: "01", label: "FullFragrance" },
-  { id: "strongerfit", index: "02", label: "StrongerFit" },
-  { id: "loncoche-tdm", index: "03", label: "Loncoche TDM" },
-  { id: "healup", index: "04", label: "HealUp" },
-  { id: "proyectos", index: "05", label: "Más proyectos" },
+  { id: "loncoche-tdm", index: "02", label: "Loncoche TDM" },
+  { id: "barberia-app", index: "03", label: "BarberíaApp" },
+  { id: "strongerfit", index: "04", label: "StrongerFit" },
+  { id: "healup", index: "05", label: "HealUp" },
+  { id: "proyectos", index: "06", label: "Más proyectos" },
 ];
 
 /** Barra fija que marca qué proyecto se está viendo. */
@@ -29,6 +30,20 @@ export const ProjectsIndex = () => {
     targets.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+
+  useEffect(() => {
+    const activeLink = document.querySelector<HTMLAnchorElement>(
+      `.projects-index a[href="#${active}"]`,
+    );
+    const scroller = activeLink?.closest<HTMLOListElement>("ol");
+    if (!activeLink || !scroller) return;
+    scroller.scrollTo({
+      behavior: reducedMotion() ? "auto" : "smooth",
+      left:
+        activeLink.offsetLeft -
+        (scroller.clientWidth - activeLink.offsetWidth) / 2,
+    });
+  }, [active]);
 
   return (
     <nav className="projects-index" aria-label="Proyectos en esta página">

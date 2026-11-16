@@ -165,7 +165,7 @@ const WeightChart = () => (
 export const StrongerFit = () => (
   <Showcase
     id="strongerfit"
-    index="02"
+    index="04"
     theme="theme-sf"
     category="App móvil · Android-first"
     title="StrongerFit"

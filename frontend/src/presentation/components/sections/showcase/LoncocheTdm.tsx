@@ -141,7 +141,7 @@ const Table = () => (
 export const LoncocheTdm = () => (
   <Showcase
     id="loncoche-tdm"
-    index="03"
+    index="02"
     theme="theme-lt"
     category="Sitio web · Astro"
     title="Loncoche TDM"

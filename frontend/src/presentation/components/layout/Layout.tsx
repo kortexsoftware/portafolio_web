@@ -5,6 +5,7 @@ import { Icon } from "../ui/Icon";
 import { Logo } from "../ui/Logo";
 const links = [
   ["quienes-somos", "Quiénes somos"],
+  ["equipo", "Equipo"],
   ["productos", "Productos"],
   ["proyectos", "Proyectos"],
   ["clientes", "Clientes"],
@@ -73,6 +74,7 @@ export const Layout = () => {
             </div>
             <nav aria-label="Enlaces del pie">
               <Link to="/productos">Productos</Link>
+              <Link to="/equipo">Equipo</Link>
               <Link to="/planes">Planes</Link>
               <Link to="/contacto">Contacto</Link>
             </nav>

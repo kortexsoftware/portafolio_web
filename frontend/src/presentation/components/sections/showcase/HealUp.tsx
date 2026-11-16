@@ -186,7 +186,7 @@ const Badges = () => (
 export const HealUp = () => (
   <Showcase
     id="healup"
-    index="04"
+    index="05"
     theme="theme-hu"
     category="App móvil · Flutter"
     title="HealUp"

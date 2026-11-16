@@ -24,6 +24,7 @@ Visitors explore solutions, review the portfolio and request contact or a demons
 - React, Vite and TypeScript frontend; Express, Prisma and PostgreSQL backend in npm workspaces. See README.md for startup and API routes.
 - The home product categories and plan descriptions are editorial presentation content, not API catalogue records or confirmed commercial terms.
 - The contact form has validation, sending, success and failure states. Successful submission requires the API and database.
+- The team page presents confirmed personal profiles and keeps unconfirmed names, biographies and portfolio links explicitly unpublished.
 - Pricing, contractual plan scope, customer endorsements, customer logos, direct email and phone details are unconfirmed. The implementation uses enquiry language and explicit placeholders.
 - Free-demo language is present in the requested marketing treatment; operational availability needs business confirmation.
 

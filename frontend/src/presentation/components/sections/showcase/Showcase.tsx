@@ -100,6 +100,7 @@ type ShowcaseProps = {
   title: string;
   lead: string;
   link: { href: string; label: string };
+  secondaryLink?: { href: string; label: string };
   /** Recibe `true` mientras la sección está en pantalla. */
   children: (active: boolean) => ReactNode;
 };
@@ -112,6 +113,7 @@ export const Showcase = ({
   title,
   lead,
   link,
+  secondaryLink,
   children,
 }: ShowcaseProps) => {
   const { ref, seen, inView } = useInView<HTMLElement>();
@@ -137,9 +139,21 @@ export const Showcase = ({
           </p>
           <h2 id={`${id}-title`}>{title}</h2>
           <p className="ff-lead">{lead}</p>
-          <a className="ff-visit" href={link.href} target="_blank" rel="noreferrer">
-            {link.label} <Icon name="arrow" />
-          </a>
+          <div className="ff-actions">
+            <a className="ff-visit" href={link.href} target="_blank" rel="noreferrer">
+              {link.label} <Icon name="arrow" />
+            </a>
+            {secondaryLink && (
+              <a
+                className="ff-visit ff-visit-secondary"
+                href={secondaryLink.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {secondaryLink.label} <Icon name="arrow" />
+              </a>
+            )}
+          </div>
         </header>
         <div className="ff-grid">{children(seen && inView)}</div>
       </div>

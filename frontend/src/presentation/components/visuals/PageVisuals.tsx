@@ -71,6 +71,28 @@ export const AboutVisual = () => {
   );
 };
 
+export const TeamVisual = () => {
+  const people = [
+    { x: 62, y: 72, label: "Producto" },
+    { x: 160, y: 176, label: "Desarrollo" },
+    { x: 258, y: 72, label: "Clientes" },
+  ];
+
+  return (
+    <svg viewBox="0 0 320 250" className="pv pv-team">
+      <path className="pv-link" d="M62 72 C90 126 122 154 160 176 C198 154 230 126 258 72" />
+      <path className="pv-flow" d="M62 72 H258" />
+      {people.map((person, index) => (
+        <Person key={person.label} {...person} i={index} />
+      ))}
+      <g className="pv-team-code">
+        <circle cx="160" cy="72" r="24" />
+        <path d="m153 65-7 7 7 7M167 65l7 7-7 7M164 60l-8 24" />
+      </g>
+    </svg>
+  );
+};
+
 export const ProductsVisual = () => {
   const items: { icon: IconName; warm: boolean; angle: number }[] = [
     { icon: "grid", warm: false, angle: 0 },
