@@ -10,98 +10,76 @@ type Node = {
   icon?: IconName;
   labelDx?: number;
   labelDy?: number;
+  /** Ruta de la sección a la que lleva el nodo */
+  to?: string;
   /** Amplitud del vaivén en px (0 = fijo) */
   amp: number;
 };
 
 const CENTER = 0;
 
-const nodes: Node[] = [
-  { x: 280, y: 230, r: 64, fill: "#205c50", amp: 3 },
-  {
-    x: 114,
-    y: 94,
-    r: 26,
-    fill: "#246b5e",
-    label: "Gestión",
-    icon: "grid",
-    labelDx: 0,
-    labelDy: 49,
-    amp: 7,
-  },
-  {
-    x: 432,
-    y: 80,
-    r: 28,
-    fill: "#b35f40",
-    label: "Ventas",
-    icon: "cart",
-    labelDx: 0,
-    labelDy: 51,
-    amp: 6,
-  },
-  {
-    x: 475,
-    y: 286,
-    r: 26,
-    fill: "#246b5e",
-    label: "Facturación",
-    icon: "file",
-    labelDx: 0,
-    labelDy: 49,
-    amp: 7,
-  },
-  {
-    x: 316,
-    y: 409,
-    r: 24,
-    fill: "#b35f40",
-    label: "Soporte",
-    icon: "phone",
-    labelDx: 0,
-    labelDy: 47,
-    amp: 6,
-  },
-  {
-    x: 75,
-    y: 321,
-    r: 26,
-    fill: "#246b5e",
-    label: "A medida",
-    icon: "code",
-    labelDx: 0,
-    labelDy: 49,
-    amp: 7,
-  },
-  { x: 240, y: 43, r: 5, fill: "#619180", amp: 9 },
-  { x: 521, y: 170, r: 5, fill: "#ba8060", amp: 9 },
-  { x: 181, y: 436, r: 5, fill: "#619180", amp: 9 },
-  { x: 38, y: 199, r: 5, fill: "#ba8060", amp: 9 },
-  { x: 463, y: 422, r: 5, fill: "#619180", amp: 8 },
+/** Secciones del sitio: un nodo por cada una, en sentido horario desde arriba. */
+const sections: { label: string; icon: IconName; to: string }[] = [
+  { label: "Quiénes somos", icon: "info", to: "/quienes-somos" },
+  { label: "Equipo", icon: "users", to: "/equipo" },
+  { label: "Productos", icon: "grid", to: "/productos" },
+  { label: "Proyectos", icon: "folder", to: "/proyectos" },
+  { label: "Clientes", icon: "star", to: "/clientes" },
+  { label: "Planes", icon: "tag", to: "/planes" },
+  { label: "Contacto", icon: "chat", to: "/contacto" },
 ];
 
+// Órbita elíptica alrededor del núcleo (viewBox 560x480)
+const ORBIT = { cx: 280, cy: 230, rx: 205, ry: 180 };
+
+const sectionNodes: Node[] = sections.map((sec, i) => {
+  const angle = -Math.PI / 2 + (i * 2 * Math.PI) / sections.length;
+  return {
+    x: Math.round(ORBIT.cx + Math.cos(angle) * ORBIT.rx),
+    y: Math.round(ORBIT.cy + Math.sin(angle) * ORBIT.ry),
+    r: 25,
+    fill: i % 2 === 0 ? "#246b5e" : "#b35f40",
+    label: sec.label,
+    icon: sec.icon,
+    to: sec.to,
+    labelDx: 0,
+    labelDy: 48,
+    amp: i % 2 === 0 ? 7 : 6,
+  };
+});
+
+const nodes: Node[] = [
+  { x: ORBIT.cx, y: ORBIT.cy, r: 64, fill: "#205c50", amp: 3 },
+  ...sectionNodes,
+  // Satélites decorativos
+  { x: 200, y: 28, r: 5, fill: "#619180", amp: 9 },
+  { x: 532, y: 186, r: 5, fill: "#ba8060", amp: 9 },
+  { x: 280, y: 462, r: 5, fill: "#619180", amp: 9 },
+  { x: 505, y: 420, r: 5, fill: "#619180", amp: 8 },
+  { x: 28, y: 186, r: 5, fill: "#ba8060", amp: 9 },
+];
+
+/** Índices de los nodos de sección: 1..7 */
+const SERVICE_NODES = sections.map((_, i) => i + 1);
+const FIRST_SATELLITE = sections.length + 1;
+const sat = (k: number) => FIRST_SATELLITE + k;
+
 const edges: [number, number][] = [
-  [0, 1],
-  [0, 2],
-  [0, 3],
-  [0, 4],
-  [0, 5],
-  [1, 5],
-  [5, 4],
-  [4, 2],
-  [2, 3],
-  [1, 3],
-  [5, 2],
-  [6, 1],
-  [6, 2],
-  [7, 2],
-  [7, 3],
-  [8, 5],
-  [8, 4],
-  [9, 1],
-  [9, 5],
-  [10, 3],
-  [10, 4],
+  // Núcleo → cada sección
+  ...SERVICE_NODES.map((i): [number, number] => [CENTER, i]),
+  // Anillo entre secciones vecinas
+  ...SERVICE_NODES.map((i): [number, number] => [i, (i % sections.length) + 1]),
+  // Satélites
+  [sat(0), 1],
+  [sat(0), 7],
+  [sat(1), 2],
+  [sat(1), 3],
+  [sat(2), 4],
+  [sat(2), 5],
+  [sat(3), 3],
+  [sat(3), 4],
+  [sat(4), 6],
+  [sat(4), 7],
 ];
 
 // Capa lejana: neuronas tenues que se desplazan con el cursor (paralaje)
@@ -114,7 +92,6 @@ const depthLinks: [number, number][] = [
   [0, 1], [1, 6], [2, 5], [3, 10], [4, 9], [6, 7], [8, 9], [0, 11], [5, 10],
 ];
 
-const SERVICE_NODES = [1, 2, 3, 4, 5];
 const REPEL_RADIUS = 130;
 const REPEL_FORCE = 16;
 const PULSES = 6;
@@ -307,7 +284,7 @@ export const NeuralNetwork = () => {
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
       role="img"
-      aria-label="Kortex conecta gestión, ventas, facturación, soporte y software a medida"
+      aria-label="Kortex conecta quiénes somos, equipo, productos, proyectos, clientes, planes y contacto"
     >
       <svg ref={svgRef} viewBox="0 0 560 480">
         <g ref={depthRef} className="network-depth">
@@ -334,7 +311,7 @@ export const NeuralNetwork = () => {
               className={
                 a === CENTER
                   ? "is-primary"
-                  : a >= 6 || b >= 6
+                  : a >= FIRST_SATELLITE || b >= FIRST_SATELLITE
                     ? "is-faint"
                     : undefined
               }

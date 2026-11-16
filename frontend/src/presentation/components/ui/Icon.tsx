@@ -9,7 +9,12 @@ export type IconName =
   | "arrow"
   | "menu"
   | "close"
-  | "chat";
+  | "chat"
+  | "info"
+  | "users"
+  | "folder"
+  | "star"
+  | "tag";
 const paths: Record<IconName, string> = {
   grid: "M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z",
   cart: "M3 4h2l3 12h10l3-9H6 M9 20h.01 M18 20h.01",
@@ -23,6 +28,13 @@ const paths: Record<IconName, string> = {
   menu: "M5 8h14 M9 16h10",
   close: "m6 6 12 12 M18 6 6 18",
   chat: "M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z M8.5 11.5h.01 M12 11.5h.01 M15.5 11.5h.01",
+  info: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z M12 16v-4 M12 8h.01",
+  users:
+    "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
+  folder:
+    "M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9L9.6 3.9A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z",
+  star: "M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z",
+  tag: "M3 3h8l10 10-8 8L3 13z M7.5 7.5h.01",
 };
 export const Icon = ({ name }: { name: IconName }) => (
   <svg
