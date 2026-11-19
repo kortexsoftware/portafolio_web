@@ -11,6 +11,7 @@ import {
   TeamPage,
 } from "../pages/ModulePages";
 import { NotFoundPage } from "../pages/NotFoundPage";
+import { ServicePage } from "../pages/ServicePage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "/quienes-somos", element: <AboutPage /> },
       { path: "/equipo", element: <TeamPage /> },
       { path: "/productos", element: <ProductsPage /> },
+      { path: "/productos/:slug", element: <ServicePage /> },
       { path: "/proyectos", element: <ProjectsPage /> },
       { path: "/clientes", element: <ClientsPage /> },
       { path: "/planes", element: <PlansPage /> },

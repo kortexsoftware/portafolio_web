@@ -4,6 +4,7 @@ import {
   AboutSection,
   ClientPromiseSection,
   DemoSection,
+  FaqSection,
   FoundersSection,
   PlansSection,
   ProcessSection,
@@ -85,6 +86,7 @@ export const ProductsPage = () => (
     <Band>
       <ProcessSection />
     </Band>
+    <FaqSection />
     <DemoSection
       title="¿No sabes cuál"
       accent="elegir?"
@@ -145,6 +147,9 @@ export const PlansPage = () => (
       visual={<PlansVisual />}
     />
     <PlansSection />
+    <Band>
+      <FaqSection />
+    </Band>
     <DemoSection
       title="¿Dudas con"
       accent="tu plan?"

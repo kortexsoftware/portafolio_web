@@ -7,9 +7,11 @@ type PageHeaderProps = {
   title: string;
   lead: ReactNode;
   visual: ReactNode;
+  /** Intermediate breadcrumb, e.g. the parent module of a detail page. */
+  parent?: { label: string; to: string };
 };
 
-export const PageHeader = ({ index, title, lead, visual }: PageHeaderProps) => {
+export const PageHeader = ({ index, title, lead, visual, parent }: PageHeaderProps) => {
   const { ref, seen, inView } = useInView<HTMLElement>(0);
   return (
     <header
@@ -21,6 +23,12 @@ export const PageHeader = ({ index, title, lead, visual }: PageHeaderProps) => {
           <nav className="breadcrumb" aria-label="Ruta">
             <Link to="/">Inicio</Link>
             <span aria-hidden="true">/</span>
+            {parent && (
+              <>
+                <Link to={parent.to}>{parent.label}</Link>
+                <span aria-hidden="true">/</span>
+              </>
+            )}
             <span aria-current="page">{title}</span>
           </nav>
           <p className="page-index" aria-hidden="true">

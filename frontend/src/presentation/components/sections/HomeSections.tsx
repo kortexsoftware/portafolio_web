@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { products, steps, plans, maintenanceNote } from "../../content/home";
 import { Icon } from "../ui/Icon";
+import { pains, faqs as generalFaqs, type Faq } from "../../content/faq";
 export const AboutSection = () => (
   <section id="quienes-somos" className="section wrap about-section">
     <div>
@@ -52,7 +53,7 @@ export const ProductsSection = () => (
         <Link
           className={`product-card product-${index}`}
           key={product.slug}
-          to={`/contacto?servicio=${product.slug}`}
+          to={`/productos/${product.slug}`}
         >
           <span className="icon-box">
             <Icon name={product.icon} />
@@ -225,12 +226,14 @@ type DemoProps = {
   accent?: string;
   text?: string;
   cta?: string;
+  to?: string;
 };
 export const DemoSection = ({
   title = "Conecta tu empresa al",
   accent = "cerebro Kortex.",
   text = "Agenda una demo gratuita y te mostramos cómo funciona con tus propios procesos.",
   cta = "Agendar demo gratis",
+  to = "/contacto",
 }: DemoProps) => (
   <section className="wrap demo-wrap">
     <div className="demo">
@@ -240,9 +243,82 @@ export const DemoSection = ({
         <span>{accent}</span>
       </h2>
       <p>{text}</p>
-      <Link className="btn btn-pink" to="/contacto">
+      <Link className="btn btn-pink" to={to}>
         {cta}
       </Link>
     </div>
+  </section>
+);
+
+export const PainSection = () => (
+  <section className="section wrap pain-section" aria-labelledby="pain-title">
+    <div className="pain-intro">
+      <p className="eyebrow">Antes de hablar de software</p>
+      <h2 id="pain-title">
+        ¿Te suena
+        <br />
+        <em>familiar?</em>
+      </h2>
+      <p>
+        Son los problemas que más escuchamos en empresas que están creciendo.
+        Todos tienen arreglo, y casi nunca empieza por comprar más
+        herramientas.
+      </p>
+      <Link className="btn" to="/contacto">
+        Cuéntanos el tuyo
+      </Link>
+    </div>
+    <ul className="pain-list">
+      {pains.map((pain) => (
+        <li key={pain.text}>
+          <Link to={pain.to}>
+            <p>{pain.text}</p>
+            <span className="pain-solution">
+              {pain.solution}
+              <Icon name="arrow" />
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </section>
+);
+
+const toFaqJsonLd = (faqs: Faq[]) =>
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  });
+
+export const FaqSection = ({ faqs = generalFaqs }: { faqs?: Faq[] }) => (
+  <section className="section wrap faq-section" aria-labelledby="faq-title">
+    <div>
+      <p className="eyebrow">Preguntas frecuentes</p>
+      <h2 id="faq-title">
+        Lo que nos
+        <br />
+        preguntan <em>primero.</em>
+      </h2>
+    </div>
+    <div className="faq-list">
+      {faqs.map((faq) => (
+        <details key={faq.question}>
+          <summary>
+            {faq.question}
+            <span className="faq-toggle" aria-hidden="true" />
+          </summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: toFaqJsonLd(faqs) }}
+    />
   </section>
 );
