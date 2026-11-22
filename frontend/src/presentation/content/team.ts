@@ -60,26 +60,16 @@ export const teamMembers: TeamMember[] = [
     initials: "JV",
     role: "Desarrollador de software · Scrum Master",
     description:
-      "Estudiante de Ingeniería Civil en Informática en la Universidad Católica de Temuco, enfocado en desarrollo de software, desarrollo web y análisis de datos. Creó FullFragrance, un comparador de precios en producción que reúne más de 11.900 perfumes de 11 tiendas chilenas, y el sitio oficial de noticias de Loncoche TDM. Ha liderado equipos universitarios como Scrum Master, se mueve con soltura entre Linux y Windows, suma infraestructura como código con Terraform y cuenta con certificación Cisco en fundamentos de redes. Trabaja desde Temuco–Loncoche, Chile.",
+      "Estudiante de Ingeniería Civil en Informática en la Universidad Católica de Temuco, enfocado en desarrollo web full stack y análisis de datos. Construye aplicaciones con React y Node.js sobre PostgreSQL, y gestiona infraestructura como código con Terraform. Ha liderado equipos como Scrum Master, aportando organización y seguimiento a cada entrega.",
     specialties: [
       "TypeScript",
-      "JavaScript",
       "React",
       "Next.js",
       "Node.js",
-      "Express",
-      "Astro",
-      "Tailwind CSS",
-      "Python",
       "Go",
-      "C++",
+      "Python",
       "PostgreSQL",
-      "MySQL",
-      "MongoDB",
       "Terraform",
-      "Linux",
-      "Scrum",
-      "Análisis de datos",
     ],
     links: [
       {
