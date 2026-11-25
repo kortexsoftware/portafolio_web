@@ -29,7 +29,7 @@ export const Hero = () => (
           </span>
           <h1>Software que <span className="hero-thought">piensa contigo.</span></h1>
           <p>
-            Kortex es el cerebro digital de tu empresa: licencias,
+            Cosmo es el cerebro digital de tu empresa: licencias,
             implementación y soporte conectados en un solo lugar.
           </p>
           <div className="hero-actions">

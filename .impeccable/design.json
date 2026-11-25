@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-11-10T00:00:00Z",
-  "title": "Design System: Kortex",
+  "title": "Design System: Cosmo",
   "extensions": {
     "colorMeta": {
       "bg": {
@@ -105,7 +105,7 @@
   ],
   "narrative": {
     "northStar": "Warm clarity",
-    "overview": "A light, calm and professional Kortex interface guided by Apple Design principles.",
+    "overview": "A light, calm and professional Cosmo interface guided by Apple Design principles.",
     "keyCharacteristics": [
       "Warm white surfaces and graphite text.",
       "Forest green actions and restrained terracotta accents.",

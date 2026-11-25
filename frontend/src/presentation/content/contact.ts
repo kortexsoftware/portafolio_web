@@ -4,6 +4,6 @@ export const contact = {
   phoneHref: "tel:+56984616551",
   whatsappHref:
     "https://wa.me/56984616551?text=" +
-    encodeURIComponent("Hola Kortex, quiero conversar sobre un proyecto."),
+    encodeURIComponent("Hola Cosmo, quiero conversar sobre un proyecto."),
   location: "Chile · Atención online",
 };

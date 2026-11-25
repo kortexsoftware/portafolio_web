@@ -1,5 +1,5 @@
 ---
-name: Kortex
+name: Cosmo
 description: Warm, light software marketing with quiet materials and responsive controls.
 colors:
   bg: "#faf9f6"
@@ -50,11 +50,11 @@ components:
     padding: "14px 25px"
 ---
 
-# Design System: Kortex
+# Design System: Cosmo
 
 ## Overview
 
-Warm clarity replaces the previous dark/neon direction at the user's request. Apple Design informs hierarchy, restraint, immediate press feedback, legible materials and accessibility; Kortex retains its own identity and locally hosted Outfit family. Guidance: https://github.com/emilkowalski/skills/tree/main/skills/apple-design.
+Warm clarity replaces the previous dark/neon direction at the user's request. Apple Design informs hierarchy, restraint, immediate press feedback, legible materials and accessibility; Cosmo retains its own identity and locally hosted Outfit family. Guidance: https://github.com/emilkowalski/skills/tree/main/skills/apple-design.
 
 ## Colors
 
@@ -74,7 +74,7 @@ Use shallow, vertically offset shadows on white panels. Translucency belongs onl
 
 ## Shapes
 
-Rounded cards and pill controls remain familiar. The network sits directly on the warm page ground, with a solid forest-green Kortex core, large service nodes, white icons and visible labels. Solid primary connections are distinguished from dashed secondary connections. The demo invitation has a single subtle border instead of a neon gradient. The footer uses a faint oversized wordmark on a light sage surface.
+Rounded cards and pill controls remain familiar. The network sits directly on the warm page ground, with a solid forest-green Cosmo core, large service nodes, white icons and visible labels. Solid primary connections are distinguished from dashed secondary connections. The demo invitation has a single subtle border instead of a neon gradient. The footer uses a faint oversized wordmark on a light sage surface.
 
 ## Components
 

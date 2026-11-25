@@ -112,13 +112,13 @@ export const FoundersSection = () => (
     <div className="founders-intro">
       <p className="eyebrow">Clientes fundadores</p>
       <h2>
-        Buscamos a nuestras
+        Aún quedan cupos
         <br />
-        primeras <em>empresas.</em>
+        de <em>fundador.</em>
       </h2>
       <p>
-        Kortex está partiendo y queremos crecer junto a quienes confíen
-        primero. Las empresas fundadoras reciben condiciones que no vamos a
+        Cosmo está partiendo y queremos crecer junto a quienes confíen
+        temprano. Las empresas fundadoras reciben condiciones que no vamos a
         repetir.
       </p>
       <div className="founders-actions">
@@ -154,9 +154,9 @@ export const ClientPromiseSection = () => (
         <em>inventadas.</em>
       </h2>
       <p>
-        Cuando nuestros primeros clientes cuenten su experiencia, la vas a
-        leer en esta página, con nombre y empresa. Mientras tanto, mira lo que
-        ya hemos construido.
+        Cuando nuestros clientes cuenten su experiencia, la vas a leer en esta
+        página, con nombre y empresa. Mientras tanto, mira lo que ya hemos
+        construido.
       </p>
       <Link className="btn btn-outline" to="/proyectos">
         Ver proyectos
@@ -230,7 +230,7 @@ type DemoProps = {
 };
 export const DemoSection = ({
   title = "Conecta tu empresa al",
-  accent = "cerebro Kortex.",
+  accent = "cerebro Cosmo.",
   text = "Agenda una demo gratuita y te mostramos cómo funciona con tus propios procesos.",
   cta = "Agendar demo gratis",
   to = "/contacto",

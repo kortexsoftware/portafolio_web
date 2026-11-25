@@ -183,10 +183,6 @@ export const BarberiaApp = () => (
       href: "https://barberiaapp-olive.vercel.app",
       label: "Abrir la aplicación",
     }}
-    secondaryLink={{
-      href: "https://github.com/BenjaminCantero/BarberiaApp",
-      label: "Ver código en GitHub",
-    }}
   >
     {(active) => (
       <>

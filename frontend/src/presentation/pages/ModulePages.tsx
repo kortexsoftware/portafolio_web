@@ -13,11 +13,12 @@ import {
 import { AboutStory } from "../components/sections/AboutStory";
 import { ProjectsSection } from "../components/sections/ProjectsSection";
 import { FullFragrance } from "../components/sections/showcase/FullFragrance";
-import { StrongerFit } from "../components/sections/showcase/StrongerFit";
 import { LoncocheTdm } from "../components/sections/showcase/LoncocheTdm";
-import { HealUp } from "../components/sections/showcase/HealUp";
+import { TotalKids } from "../components/sections/showcase/TotalKids";
+import { CosmoWeb } from "../components/sections/showcase/CosmoWeb";
 import { BarberiaApp } from "../components/sections/showcase/BarberiaApp";
 import { ProjectsIndex } from "../components/sections/showcase/ProjectsIndex";
+import { ClientsSection } from "../components/sections/ClientsSection";
 import { ContactSection } from "../components/sections/ContactSection";
 import { TeamSection } from "../components/sections/TeamSection";
 import {
@@ -109,8 +110,8 @@ export const ProjectsPage = () => (
       <FullFragrance />
       <LoncocheTdm />
       <BarberiaApp />
-      <StrongerFit />
-      <HealUp />
+      <TotalKids />
+      <CosmoWeb />
     </div>
     <Band>
       <ProjectsSection showAll />
@@ -123,17 +124,18 @@ export const ClientsPage = () => (
     <PageHeader
       index="05"
       title="Clientes"
-      lead="Estamos sumando a nuestras primeras empresas. Esto es lo que ganan por llegar primero."
+      lead="Las empresas que ya confían en nosotros y lo que ganan quienes se suman ahora."
       visual={<ClientsVisual />}
     />
+    <ClientsSection />
     <FoundersSection />
     <Band>
       <ClientPromiseSection />
     </Band>
     <DemoSection
       title="Tu empresa puede"
-      accent="ser la primera."
-      text="Agenda una demo y revisamos juntos cómo Kortex encaja en tu día a día."
+      accent="ser la siguiente."
+      text="Agenda una demo y revisamos juntos cómo Cosmo encaja en tu día a día."
     />
   </>
 );

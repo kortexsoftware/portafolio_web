@@ -326,7 +326,7 @@ export const NeuralNetwork = () => {
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
       role="navigation"
-      aria-label="Secciones de Kortex"
+      aria-label="Secciones de Cosmo"
     >
       <svg ref={svgRef} viewBox="0 0 560 480" role="group">
         <g ref={depthRef} className="network-depth" aria-hidden="true">
@@ -402,21 +402,30 @@ export const NeuralNetwork = () => {
                   r={n.r}
                   fill={n.fill}
                 />
-                <text
-                  className="network-k"
-                  x={n.x}
-                  y={n.y + 6}
-                  textAnchor="middle"
+                {/* La C del logo de Cosmo, en blanco sobre el núcleo */}
+                <g
+                  className="network-mark"
+                  transform={`translate(${n.x} ${n.y - 11}) scale(0.95) translate(-32 -32)`}
                 >
-                  K
-                </text>
+                  <path
+                    d="M45.79 20.43 A18 18 0 1 0 45.79 43.57"
+                    fill="none"
+                    stroke="#fff"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="45.79" cy="20.43" r="5.4" fill="#fff" />
+                  <circle cx="45.79" cy="43.57" r="5.4" fill="#fff" />
+                  <circle cx="14" cy="32" r="5.4" fill="#fff" />
+                  <circle cx="32" cy="32" r="7" fill="#e07a52" />
+                </g>
                 <text
                   className="network-core-name"
                   x={n.x}
                   y={n.y + 31}
                   textAnchor="middle"
                 >
-                  KORTEX
+                  COSMO
                 </text>
               </>
             ) : n.to ? (

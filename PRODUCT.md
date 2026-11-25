@@ -1,4 +1,4 @@
-# Product: Kortex
+# Product: Cosmo
 
 <!-- impeccable:product-schema 1 -->
 
@@ -12,7 +12,7 @@ The implemented Spanish-language site addresses companies in Chile evaluating bu
 
 ## Product Purpose
 
-Present the agency's services and projects and collect enquiries through the lead form. Kortex is the identity requested for this redesign.
+Present the agency's services and projects and collect enquiries through the lead form. Cosmo is the identity requested for this redesign.
 
 ## Operating Context
 
@@ -30,7 +30,7 @@ Visitors explore solutions, review the portfolio and request contact or a demons
 
 ## Brand Commitments
 
-Kortex; Spanish copy; a warm, light and professional interface inspired by Apple Design principles. This direction supersedes the original dark/cyan/pink reference at the user’s request. Visual rules live in DESIGN.md.
+Cosmo; Spanish copy; a warm, light and professional interface inspired by Apple Design principles. This direction supersedes the original dark/cyan/pink reference at the user’s request. Visual rules live in DESIGN.md.
 
 ## Evidence on Hand
 

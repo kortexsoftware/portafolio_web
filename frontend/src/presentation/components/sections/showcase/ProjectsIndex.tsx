@@ -1,18 +1,43 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { reducedMotion } from "./Showcase";
 
 const items = [
   { id: "fullfragrance", index: "01", label: "FullFragrance" },
   { id: "loncoche-tdm", index: "02", label: "Loncoche TDM" },
   { id: "barberia-app", index: "03", label: "BarberíaApp" },
-  { id: "strongerfit", index: "04", label: "StrongerFit" },
-  { id: "healup", index: "05", label: "HealUp" },
-  { id: "proyectos", index: "06", label: "Más proyectos" },
+  { id: "totalkids", index: "04", label: "Total Kids" },
+  { id: "cosmo-web", index: "05", label: "Cosmo" },
+  { id: "proyectos", index: "06", label: "Resumen" },
 ];
 
 /** Barra fija que marca qué proyecto se está viendo. */
 export const ProjectsIndex = () => {
   const [active, setActive] = useState(items[0].id);
+  const [docked, setDocked] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  // Marca cuándo la barra queda fijada bajo el header para acoplarla a él
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      const stickyTop = parseFloat(getComputedStyle(nav).top) || 0;
+      setDocked(nav.getBoundingClientRect().top <= stickyTop + 0.5);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const targets = items
@@ -46,7 +71,11 @@ export const ProjectsIndex = () => {
   }, [active]);
 
   return (
-    <nav className="projects-index" aria-label="Proyectos en esta página">
+    <nav
+      ref={navRef}
+      className={`projects-index${docked ? " is-docked" : ""}`}
+      aria-label="Proyectos en esta página"
+    >
       <ol className="wrap">
         {items.map((it) => (
           <li key={it.id}>

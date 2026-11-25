@@ -3,7 +3,7 @@ import { Icon, type IconName } from "../ui/Icon";
 
 /*
  * Ilustraciones de encabezado, una por módulo. Mismo lenguaje que el grafo
- * de la portada: núcleo K, nodos verde/terracota y conexiones. Animadas solo
+ * de la portada: núcleo con la C del logo, nodos verde/terracota y conexiones. Animadas solo
  * con CSS; PageHeader agrega `is-paused` cuando salen de pantalla.
  */
 
@@ -13,9 +13,20 @@ const Core = ({ x, y, r = 30 }: { x: number; y: number; r?: number }) => (
   <g className="pv-core">
     <circle className="pv-core-ring" cx={x} cy={y} r={r} />
     <circle className="pv-core-disc" cx={x} cy={y} r={r} />
-    <text x={x} y={y + 8} textAnchor="middle">
-      K
-    </text>
+    {/* La C del logo de Cosmo */}
+    <g transform={`translate(${x} ${y}) scale(${r / 40}) translate(-30 -32)`}>
+      <path
+        d="M45.79 20.43 A18 18 0 1 0 45.79 43.57"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="6"
+        strokeLinecap="round"
+      />
+      <circle cx="45.79" cy="20.43" r="5.4" fill="#fff" />
+      <circle cx="45.79" cy="43.57" r="5.4" fill="#fff" />
+      <circle cx="14" cy="32" r="5.4" fill="#fff" />
+      <circle cx="32" cy="32" r="6.5" fill="#e07a52" />
+    </g>
   </g>
 );
 

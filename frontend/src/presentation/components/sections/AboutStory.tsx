@@ -6,7 +6,7 @@ import { stagger } from "./showcase/Showcase";
 const facts = [
   { value: "3", label: "socios: dos fundadores y un socio técnico" },
   { value: "115", label: "contribuciones en nuestro primer producto" },
-  { value: "2026", label: "año en que nace Kortex Software" },
+  { value: "2026", label: "año en que nace Cosmo Software" },
 ];
 
 const roles = [
@@ -42,7 +42,7 @@ const milestones = [
   },
   {
     date: "Hoy",
-    title: "Nace Kortex Software",
+    title: "Nace Cosmo Software",
     text: "Se suma un socio técnico y el equipo opera como sociedad formal de desarrollo de productos digitales.",
   },
 ];
@@ -51,7 +51,7 @@ export const AboutStory = () => {
   const timeline = useInView<HTMLOListElement>(0.2);
   return (
     <>
-      <section className="section wrap about-facts" aria-label="Kortex en cifras">
+      <section className="section wrap about-facts" aria-label="Cosmo en cifras">
         <dl>
           {facts.map((f) => (
             <div key={f.label}>

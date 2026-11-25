@@ -13,7 +13,7 @@ export const ServicePage = () => {
   useEffect(() => {
     if (!service) return;
     const previous = document.title;
-    document.title = `${service.title} | Kortex`;
+    document.title = `${service.title} | Cosmo`;
     return () => {
       document.title = previous;
     };

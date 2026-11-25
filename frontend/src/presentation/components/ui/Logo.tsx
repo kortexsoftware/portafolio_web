@@ -1,8 +1,8 @@
 import { useId } from "react";
 
 /**
- * Símbolo de Kortex: una K formada por nodos y conexiones, con el núcleo
- * terracota en la unión. Variantes de fondo:
+ * Símbolo de Cosmo: una C formada por una órbita abierta con nodos, y el
+ * núcleo terracota al centro. Variantes de fondo:
  * - gradient: degradado menta → durazno (header y favicon)
  * - mint: menta suave
  * - outline: blanco con borde verde (sobre fondos tintados)
@@ -65,28 +65,26 @@ export const LogoMark = ({
           />
         </>
       )}
-      <g stroke={INK} strokeLinecap="round" fill="none">
-        <path d="M22 14 V50" strokeWidth="6.5" />
-        <path className="logo-arm" d="M22 32 L44 14" strokeWidth="5.5" />
-        <path d="M22 32 L44 50" strokeWidth="5.5" />
+      <g stroke={INK} strokeLinecap="round" fill="none" strokeWidth="6">
+        <path className="logo-arm" d="M45.79 20.43 A18 18 0 0 0 14 32" />
+        <path d="M14 32 A18 18 0 0 0 45.79 43.57" />
       </g>
       <g fill={INK}>
-        <circle cx="44" cy="14" r="5.4" />
-        <circle cx="44" cy="50" r="5.4" />
-        <circle cx="22" cy="14" r="5.4" />
-        <circle cx="22" cy="50" r="5.4" />
+        <circle cx="45.79" cy="20.43" r="5.4" />
+        <circle cx="45.79" cy="43.57" r="5.4" />
+        <circle cx="14" cy="32" r="5.4" />
       </g>
-      {animated && <circle className="logo-pulse" cx="22" cy="32" r="8.2" fill="none" stroke={CORE} />}
+      {animated && <circle className="logo-pulse" cx="32" cy="32" r="8.2" fill="none" stroke={CORE} />}
       <circle
         className="logo-core"
-        cx="22"
+        cx="32"
         cy="32"
         r="8.2"
         fill={CORE}
         stroke={tile ? tile.from : "#faf9f6"}
         strokeWidth="2.4"
       />
-      <circle cx="22" cy="32" r="3" fill="#fff" />
+      <circle cx="32" cy="32" r="3" fill="#fff" />
     </svg>
   );
 };
@@ -100,7 +98,7 @@ export const Logo = ({ stacked = false, ...mark }: LogoProps) => (
   <span className={`logo-lockup${stacked ? " is-stacked" : ""}`}>
     <LogoMark {...mark} />
     <span className="logo-word">
-      KORTEX
+      COSMO
       {stacked && <small>Software</small>}
     </span>
   </span>

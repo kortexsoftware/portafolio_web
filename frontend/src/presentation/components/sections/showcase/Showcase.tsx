@@ -97,9 +97,10 @@ type ShowcaseProps = {
   index: string;
   theme: string;
   category: string;
-  title: string;
+  /** Texto o marca; si es un nodo, debe llevar su propio `aria-label`. */
+  title: ReactNode;
   lead: string;
-  link: { href: string; label: string };
+  link?: { href: string; label: string };
   secondaryLink?: { href: string; label: string };
   /** Recibe `true` mientras la sección está en pantalla. */
   children: (active: boolean) => ReactNode;
@@ -134,15 +135,18 @@ export const Showcase = ({
             <span>{category}</span>
             <span className="ff-by">
               <LogoMark variant="gradient" size={20} /> Desarrollado por
-              Kortex
+              Cosmo
             </span>
           </p>
           <h2 id={`${id}-title`}>{title}</h2>
           <p className="ff-lead">{lead}</p>
+          {(link || secondaryLink) && (
           <div className="ff-actions">
-            <a className="ff-visit" href={link.href} target="_blank" rel="noreferrer">
-              {link.label} <Icon name="arrow" />
-            </a>
+            {link && (
+              <a className="ff-visit" href={link.href} target="_blank" rel="noreferrer">
+                {link.label} <Icon name="arrow" />
+              </a>
+            )}
             {secondaryLink && (
               <a
                 className="ff-visit ff-visit-secondary"
@@ -154,6 +158,7 @@ export const Showcase = ({
               </a>
             )}
           </div>
+          )}
         </header>
         <div className="ff-grid">{children(seen && inView)}</div>
       </div>
